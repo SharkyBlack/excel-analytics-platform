@@ -3,6 +3,7 @@ import cors from "cors";
 import mongoose from "mongoose";
 import dotenv from "dotenv";
 import authRoutes from "./routes/auth.routes.js";
+import uploadRoutes from './routes/upload.routes.js'
 
 dotenv.config();
 const mongoURI = process.env.MONGO_URI;
@@ -14,6 +15,8 @@ app.use(cors());
 
 //routes
 app.use("/api/auth", authRoutes);
+
+app.use('/api/upload',uploadRoutes)
 
 //db connection
 mongoose
